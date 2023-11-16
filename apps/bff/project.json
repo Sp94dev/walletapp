@@ -1,0 +1,44 @@
+{
+  "name": "apps-bff",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "application",
+  "sourceRoot": "apps/bff/src",
+  "targets": {
+    "build": {
+      "executor": "@nx/deno:esbuild",
+      "outputs": [
+        "{workspaceRoot}/dist/apps/bff"
+      ],
+      "options": {
+        "main": "apps/bff/src/main.ts",
+        "outputFile": "dist/apps/bff/main.js",
+        "denoConfig": "apps/bff/deno.jsonc"
+      }
+    },
+    "serve": {
+      "executor": "@nx/deno:run",
+      "options": {
+        "command": "--allow-net",
+        "buildTarget": "apps-bff:build",
+        "watch": true
+      }
+    },
+    "test": {
+      "executor": "@nx/deno:test",
+      "outputs": [
+        "{options.coverageDirectory}"
+      ],
+      "options": {
+        "coverageDirectory": "coverage/apps/bff",
+        "denoConfig": "apps/bff/deno.jsonc"
+      }
+    },
+    "lint": {
+      "executor": "@nx/deno:lint",
+      "options": {
+        "denoConfig": "apps/bff/deno.jsonc"
+      }
+    }
+  },
+  "tags": []
+}

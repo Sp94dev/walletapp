@@ -1,0 +1,7 @@
+{
+  "imports": {
+    "bff": "./apps/bff/main.ts",
+    "hono": "https://deno.land/x/hono@v3.10.1/mod.ts"
+  }
+  
+}
