@@ -1,15 +1,12 @@
 {
-  "deno.enablePaths": [
-    "libs/bff/bff",
-    "apps/bff"
-  ],
+  "deno.enablePaths": ["libs/bff/bff", "apps/bff", "apps/wallet-be"],
   "deno.unstable": true,
   "deno.importMap": "./../import_map.json",
   "deno.suggest.imports.hosts": {
     "https://deno.land": true
   },
   "editor.codeActionsOnSave": {
-    "source.fixAll.eslint": true
+    "source.fixAll.eslint": "explicit"
   },
   "deno.suggest.imports.autoDiscover": true
 }

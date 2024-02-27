@@ -1,0 +1,39 @@
+{
+  "name": "wallet-be",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "application",
+  "sourceRoot": "apps/wallet-be/src",
+  "targets": {
+    "build": {
+      "executor": "@nx/deno:esbuild",
+      "outputs": ["{workspaceRoot}/dist/apps/wallet-be"],
+      "options": {
+        "main": "apps/wallet-be/src/main.ts",
+        "outputFile": "dist/apps/wallet-be/main.js",
+        "denoConfig": "apps/wallet-be/deno.json"
+      }
+    },
+    "serve": {
+      "executor": "@nx/deno:run",
+      "options": {
+        "buildTarget": "wallet-be:build",
+        "watch": true
+      }
+    },
+    "test": {
+      "executor": "@nx/deno:test",
+      "outputs": ["{options.coverageDirectory}"],
+      "options": {
+        "coverageDirectory": "coverage/apps/wallet-be",
+        "denoConfig": "apps/wallet-be/deno.json"
+      }
+    },
+    "lint": {
+      "executor": "@nx/deno:lint",
+      "options": {
+        "denoConfig": "apps/wallet-be/deno.json"
+      }
+    }
+  },
+  "tags": []
+}
